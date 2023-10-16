@@ -6,7 +6,7 @@
 /*   By: dnoll <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:45:58 by dnoll             #+#    #+#             */
-/*   Updated: 2023/10/16 11:49:10 by dnoll            ###   ########.fr       */
+/*   Updated: 2023/10/16 12:50:35 by dnoll            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 # define WINDOW_SIZE	800
 
-#define BLACK 0x330066
-#define WHITE 0xFF00FF
+# define BLACK 0x330066
+# define WHITE 0xFF00FF
 
 # define PSYCHEDELIC_PURPLE 0x800080
 # define PSYCHEDELIC_PINK 0xFF1493
@@ -73,7 +73,7 @@ int		ft_strncmp(char *s1, char *s2, int n);
 void	fractol_init(t_fractol *fractol);
 void	data_init(t_fractol *fracol);
 void	fractol_render(t_fractol *fractol);
-double	map(double unscaled_num, double new_min, double new_max,
+double	scale(double unscaled_num, double new_min, double new_max,
 			double old_max);
 int		key_shortcuts(int keycode, t_fractol *fractol);
 int		mouse_action(t_fractol *fractol);
@@ -83,6 +83,7 @@ double	atodbl(char *s);
 void	print_options(void);
 void	listen_to_hook(t_fractol *fractol);
 
-t_complex	square_complex(t_complex z);
-t_complex	sum_complex(t_complex z1, t_complex z2);
+void	pixel_put(int x, int y, t_img *img, int color);
+void	mandel_or_julia(t_complex *z, t_complex *c, t_fractol *fractol);
+
 #endif
